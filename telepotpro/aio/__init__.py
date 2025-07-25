@@ -321,6 +321,18 @@ class Bot(_BotBase):
         p = _strip(locals())
         return await self._api_request('sendChatAction', _rectify(p))
 
+    async def setMessageReaction(self, msg_identifier, reactions, is_big=None):
+        """
+        See: https://core.telegram.org/bots/api#setmessagereaction
+
+        :param msg_identifier:
+            a 2-tuple (``chat_id``, ``message_id``)
+            You may extract this value easily with :meth:`telepotpro.message_identifier`
+        """
+        p = _strip(locals(), more=['msg_identifier'])
+        p.update(_dismantle_message_identifier(msg_identifier))
+        return await self._api_request('setMessageReaction', _rectify(p))
+
     async def getUserProfilePhotos(self, user_id,
                                    offset=None,
                                    limit=None):

@@ -466,6 +466,15 @@ Dice = _create_class('Dice', [
            'value'
        ])
 
+# outgoing
+ReactionType = _create_class('ReactionType', [
+    'type',
+    'emoji'
+])
+
+def ReactionTypeArray(data):
+    return [ReactionType(**r) for r in data]
+
 
 # incoming
 Message = _create_class('Message', [

@@ -31,7 +31,7 @@ PY_35 = sys.version_info >= (3,5)
 
 here = path.abspath(path.dirname(__file__))
 
-install_requires = ['urllib3>=1.9.1,<=1.24.1'] # urllib3 needed: min. 1.9.1, max. 1.24.1 (ssl error bug) (included)
+install_requires = ['urllib3>=1.9.1'] # urllib3 needed: min. 1.9.1, max. 1.24.1 (ssl error bug) (included)
 cmdclass = {}
 
 if PY_35:

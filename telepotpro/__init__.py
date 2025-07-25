@@ -18,7 +18,7 @@ from . import hack
 from . import exception
 
 
-__version_info__ = (13, 5)
+__version_info__ = (13, 6)
 __version__ = '.'.join(map(str, __version_info__))
 
 
@@ -751,6 +751,18 @@ class Bot(_BotBase):
         """ See: https://core.telegram.org/bots/api#sendchataction """
         p = _strip(locals())
         return self._api_request('sendChatAction', _rectify(p))
+
+    def setMessageReaction(self, msg_identifier, reactions, is_big=None):
+        """
+        See: https://core.telegram.org/bots/api#setmessagereaction
+
+        :param msg_identifier:
+            a 2-tuple (``chat_id``, ``message_id``)
+            You may extract this value easily with :meth:`telepotpro.message_identifier`
+        """
+        p = _strip(locals(), more=['msg_identifier'])
+        p.update(_dismantle_message_identifier(msg_identifier))
+        return self._api_request('setMessageReaction', _rectify(p))
 
     def getUserProfilePhotos(self, user_id,
                              offset=None,
