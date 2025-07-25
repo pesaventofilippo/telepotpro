@@ -752,7 +752,7 @@ class Bot(_BotBase):
         p = _strip(locals())
         return self._api_request('sendChatAction', _rectify(p))
 
-    def setMessageReaction(self, msg_identifier, reactions, is_big=None):
+    def setMessageReaction(self, msg_identifier, reaction, is_big=None):
         """
         See: https://core.telegram.org/bots/api#setmessagereaction
 
